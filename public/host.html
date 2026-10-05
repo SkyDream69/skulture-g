@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sk'ultureG — Animateur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/theme.css">
+</head>
+<body>
+<div style="padding:1.5rem;max-width:1100px;margin:0 auto">
+  <header style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:1.5rem">
+    <h1 class="font-display neon-text-purple" style="margin:0;font-size:1.6rem">Sk'ultureG · Animateur</h1>
+    <div class="font-mono small">Room : <span id="room-code" class="neon-text-purple" style="font-size:1.1rem"></span></div>
+  </header>
+
+  <div id="connect-warning" class="card" style="margin-bottom:1.5rem;border-color:var(--amber);display:none">
+    <div class="font-mono small" style="color:var(--amber)">⚠️ Non connecté — <a href="/" style="color:var(--cyan)">retourne à l'accueil</a> pour ouvrir ta room.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem">
+    <div class="card accent">
+      <h3 class="font-display" style="margin:0 0 .6rem;color:var(--cyan)">📺 Affichage (stream)</h3>
+      <div class="small" style="margin-bottom:.8rem">Aperçu de ce que voient les joueurs (ouvre dans un 2e onglet). Utile aussi pour un stream.</div>
+      <a id="display-link" class="btn" target="_blank" style="display:inline-block;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Ouvrir l'aperçu joueur ↗</a>
+      <label class="lbl">Vue affichée</label>
+      <div class="row" style="display:flex;gap:.4rem;flex-wrap:wrap">
+        <button class="set-view" data-view="menu">Menu</button>
+        <button class="set-view" data-view="grille">Grille</button>
+        <button class="set-view" data-view="blitz">Blitz</button>
+        <button class="set-view" data-view="rush">Rush</button>
+        <button class="set-view" data-view="vies">Vies</button>
+        <button class="set-view" data-view="finale">Finale</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="font-display" style="margin:0 0 .6rem;color:var(--muted)">👥 Joueurs connectés (<span id="player-count">0</span>)</h3>
+      <div id="player-list" style="display:flex;flex-direction:column;gap:.5rem"></div>
+    </div>
+  </div>
+
+  <!-- ===== PANNEAU LA GRILLE ===== -->
+  <div class="card" style="margin-top:1.2rem" id="grille-panel">
+    <h3 class="font-display neon-text-purple" style="margin:0 0 .8rem">🎯 La Grille</h3>
+
+    <!-- Import depuis Quiz Master -->
+    <div class="row" style="display:flex;gap:.5rem;margin-bottom:1rem;align-items:center;flex-wrap:wrap">
+      <label class="btn green" style="cursor:pointer">
+        ⬆️ Importer une grille (.json)
+        <input type="file" id="grille-import-file" accept=".json,application/json" style="display:none">
+      </label>
+      <span class="small font-mono" id="grille-import-status" style="color:var(--muted)">Aucune grille chargée.</span>
+    </div>
+
+    <!-- Grille (cases cliquables pour lancer les questions) -->
+    <div id="grille-board"></div>
+
+    <!-- Question active -->
+    <div id="grille-active" style="margin-top:1rem"></div>
+  </div>
+
+  <div class="card" style="margin-top:1.2rem">
+    <h3 class="font-display" style="margin:0 0 .6rem">🔔 Derniers buzz</h3>
+    <div id="buzz-list" class="font-mono small" style="display:flex;flex-direction:column;gap:.3rem">
+      <div style="color:var(--muted)">Aucun buzz pour l'instant.</div>
+    </div>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/socket-client.js"></script>
+<script src="/js/host.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* Thème néon Sk'ultureG — repris de Quiz Master */
+:root{
+  --bg:#050309;
+  --bg2:#0c0518;
+  --panel:#0f0820;
+  --line:rgba(255,255,255,.08);
+  --purple:#B026FF;
+  --red:#FF003C;
+  --green:#00FF41;
+  --amber:#FFD400;
+  --cyan:#00E5FF;
+  --text:#f5f0ff;
+  --muted:#7a6b8a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif}
+body{background:
+  radial-gradient(ellipse 80% 50% at 20% 0%, rgba(176,38,255,.18), transparent 60%),
+  radial-gradient(ellipse 70% 50% at 90% 100%, rgba(255,0,60,.12), transparent 60%),
+  var(--bg);
+  min-height:100vh}
+
+.font-display{font-family:'Poppins',system-ui,sans-serif;font-weight:800;letter-spacing:0}
+.font-mono{font-family:'JetBrains Mono',monospace}
+.tracking-wide{letter-spacing:.2em}
+.tracking-xwide{letter-spacing:.5em}
+.uppercase{text-transform:uppercase}
+.small{font-size:.8rem;color:var(--muted)}
+.hidden{display:none!important}
+
+.neon-text-purple{color:#fff;text-shadow:0 0 6px var(--purple),0 0 18px var(--purple),0 0 40px #6a00b3}
+.neon-text-red{color:#fff;text-shadow:0 0 6px var(--red),0 0 18px var(--red),0 0 40px #8a0020}
+.neon-text-green{color:#fff;text-shadow:0 0 6px var(--green),0 0 18px var(--green),0 0 40px #008a1a}
+
+/* Boutons & champs */
+button,.btn,input,select,textarea{font-family:inherit;color:var(--text);background:rgba(0,0,0,.5);border:1px solid var(--line);padding:.6em 1em;border-radius:8px;font-size:1rem;transition:all .15s}
+button,.btn{cursor:pointer}
+button:hover{border-color:var(--purple);box-shadow:0 0 10px rgba(176,38,255,.4)}
+button.primary{background:var(--purple);border-color:var(--purple);color:#fff;font-weight:700;letter-spacing:.08em}
+button.primary:hover{filter:brightness(1.2)}
+button.green{border-color:var(--green);color:#b6ffc8}
+button.danger{border-color:var(--red);color:#ffb0c0}
+button:disabled{opacity:.4;cursor:not-allowed}
+input,select,textarea{width:100%}
+
+.card{background:rgba(0,0,0,.55);border:1px solid var(--line);border-radius:14px;padding:1.2rem;backdrop-filter:blur(6px)}
+.card.accent{border-color:rgba(176,38,255,.4)}
+
+label.lbl{display:block;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--muted);margin-bottom:.3rem;margin-top:.8rem;text-transform:uppercase}
+
+/* Layout centré pour les pages d'entrée */
+.center-stage{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:1.5rem;padding:2rem;text-align:center}
+.center-stage h1{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(2.5rem,7vw,5rem);margin:0}
+.form-box{width:100%;max-width:380px;display:flex;flex-direction:column;gap:.4rem}
+
+/* Pastilles de couleur (choix avatar) */
+.color-picker{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin:.5rem 0}
+.color-picker button{width:38px;height:38px;border-radius:50%;border:3px solid transparent;padding:0}
+.color-picker button.active{border-color:#fff;transform:scale(1.15)}

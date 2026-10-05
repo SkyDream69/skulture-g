@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sk'ultureG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/theme.css">
+</head>
+<body>
+<div class="center-stage">
+  <div class="font-mono small uppercase tracking-xwide" style="color:var(--purple)">// culture générale en live</div>
+  <h1 class="neon-text-purple">Sk'ultureG</h1>
+
+  <!-- Choix : rejoindre ou créer -->
+  <div class="form-box card">
+    <h2 class="font-display" style="margin:.2rem 0;font-size:1.2rem">🎮 Rejoindre une partie</h2>
+    <label class="lbl">Code de la room</label>
+    <input id="join-room" placeholder="ex: QUIZ42" autocomplete="off">
+    <label class="lbl">Ton pseudo</label>
+    <input id="join-pseudo" placeholder="ex: Léo" maxlength="20" autocomplete="off">
+    <label class="lbl">Ta couleur</label>
+    <div class="color-picker" id="color-picker"></div>
+    <label class="lbl">Ta photo (optionnel)</label>
+    <label class="btn" style="cursor:pointer;display:flex;align-items:center;gap:.6rem;justify-content:center">
+      <span id="pp-label">📷 Choisir une photo</span>
+      <input type="file" id="join-pp" accept="image/*" style="display:none">
+    </label>
+    <img id="pp-preview" style="display:none;width:72px;height:72px;border-radius:50%;object-fit:cover;margin:.6rem auto 0;border:2px solid var(--purple)">
+    <button class="primary" id="btn-join" style="margin-top:.8rem">Rejoindre</button>
+    <div class="small" id="join-error" style="color:var(--red);min-height:1.2em"></div>
+  </div>
+
+  <!-- Lien discret vers l'espace animateur -->
+  <details class="form-box" style="max-width:380px">
+    <summary class="small" style="cursor:pointer;color:var(--muted)">🎛️ Je suis l'animateur</summary>
+    <div class="card" style="margin-top:.6rem">
+      <label class="lbl">Code de la room</label>
+      <input id="host-room" placeholder="ex: QUIZ42" autocomplete="off">
+      <label class="lbl">Mot de passe animateur</label>
+      <input id="host-pw" type="password" placeholder="••••••" autocomplete="off">
+      <div class="small" style="margin:.6rem 0;color:var(--muted)">La room sera créée si elle n'existe pas encore.</div>
+      <button class="green" id="btn-host" style="width:100%">Créer / Ouvrir mon espace</button>
+      <div class="small" id="host-error" style="color:var(--red);min-height:1.2em"></div>
+    </div>
+  </details>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/socket-client.js"></script>
+<script src="/js/home.js"></script>
+</body>
+</html>
